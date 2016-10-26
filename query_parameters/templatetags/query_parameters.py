@@ -63,7 +63,8 @@ class QueryStringSetNode(template.Node):
         else:
             query_string = get_query_string(context)
 
-        existing_query_dict = QueryDict(query_string).copy()
+        existing_query_dict = QueryDict(str(query_string)).copy()
+
         for key, value in self.contextual_parameter_dict(context).items():
             existing_query_dict[key] = value
 
